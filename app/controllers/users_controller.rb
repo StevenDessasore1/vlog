@@ -20,15 +20,21 @@ end
 end
 
  
-  post "/users" do
-    redirect "/users"
+  get '/login' do
+    erb :'users/login'
   end
 
   
-  get "/users/:id" do
-    erb :"/users/show.html"
-  end
+  post '/login' do
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect to '/vloggers'
 
+    end
+    redirect to '/login'
+
+  end
 
   get "/users/:id/edit" do
     erb :"/users/edit.html"
