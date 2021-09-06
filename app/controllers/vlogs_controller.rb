@@ -1,37 +1,54 @@
 class VlogsController < ApplicationController
 
-  # GET: /vlogs
+  
   get "/vlogs" do
-    erb :"/vlogs/index.html"
+    @vlogs = Vlog.all
+    erb :"/vlogs/index"
   end
 
-  # GET: /vlogs/new
+  
   get "/vlogs/new" do
-    erb :"/vlogs/new.html"
+    redirect_if_not_logged_in
+    @name = Name.all
+    erb :"/vlogs/new"
   end
-
-  # POST: /vlogs
+  
   post "/vlogs" do
-    redirect "/vlogs"
+    redirect_if_not_logged_in
+    @vlog = Vlog.new(params)
+
+    @vlog.user_id = session[:user_id]
+    @vlog.save
+
+    redirect :"/vlogs"
   end
 
-  # GET: /vlogs/5
+  
   get "/vlogs/:id" do
-    erb :"/vlogs/show.html"
+    @vlog = Vlog.find(params[:id])
+    erb :"/vlogs/show"
   end
 
-  # GET: /vlogs/5/edit
+
   get "/vlogs/:id/edit" do
-    erb :"/vlogs/edit.html"
+    erb :"/vlogs/edit"
   end
 
-  # PATCH: /vlogs/5
+  
   patch "/vlogs/:id" do
-    redirect "/vlogs/:id"
-  end
+    redirect_if_not_logged_in
 
-  # DELETE: /vlogs/5/delete
-  delete "/vlogs/:id/delete" do
-    redirect "/vlogs"
-  end
+  @vlog = Vlog.find(params[:id])
+  redirect_if_not_logged_in
+  @vlog.update(params["vlog"])
+  redirect "/vloggers/#{@vlog.id}"
+end
+
+
+delete "/vlog/:id/delete" do
+  @vlog = Vlog.find(params[:id])
+  @vlog.destroy
+  redirect "/vlogs"
+end
+
 end

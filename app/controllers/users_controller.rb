@@ -36,18 +36,9 @@ end
 
   end
 
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
+  post '/logout' do
+    session.clear
+    redirect to '/vloggers'
   end
-
-  
-  patch "/users/:id" do
-    redirect "/users/:id"
-  end
-
- 
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
-
 end
+
