@@ -14,7 +14,7 @@ end
     else 
       user.save
       session[:user_id] = user.id
-      redirect to "/vloggers"
+      redirect to "/vlogs"
   end
 
 end
@@ -29,7 +29,7 @@ end
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect to '/vloggers'
+      redirect to '/vlogs'
 
     end
     redirect to '/login'
@@ -38,7 +38,7 @@ end
 
   post '/logout' do
     session.clear
-    redirect to '/vloggers'
+    redirect to '/vlogs'
   end
 end
 

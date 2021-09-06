@@ -5,6 +5,6 @@ if ActiveRecord::Base.connection.migration_context.
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
 
-run ApplicationController
+use ApplicationController
 use UsersController
-use VlogsController
+run VlogsController
