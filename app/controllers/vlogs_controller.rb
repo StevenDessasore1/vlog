@@ -7,6 +7,7 @@ class VlogsController < ApplicationController
   end
 
   get '/vlogs/new' do
+    redirect_if_not_logged_in
     @vlogs = Vlog.all
     erb :"/vlogs/new"
   end
@@ -17,6 +18,11 @@ class VlogsController < ApplicationController
   end
 
   get '/vlogs/:id/edit' do
+    redirect_if_not_logged_in
+
+    @vlog = Vlog.find(params[:id])
+
+    redirect_if_not_authorized
     erb :"/vlogs/edit"
   end
 
@@ -40,8 +46,16 @@ class VlogsController < ApplicationController
   end
 
   delete '/vlog/:id/delete' do
+    redirect_if_not_logged_in
     @vlog = Vlog.find(params[:id])
+    redirect_if_not_authorized
     @vlog.destroy
     redirect '/vlogs'
   end
+
+  private 
+  def redirect_if_not_authorized
+    if @vlog.user != current_user
+      redirect to '/vlogs'
+    end
 end

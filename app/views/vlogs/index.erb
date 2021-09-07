@@ -1,3 +1,12 @@
 <h1>Favorite Vloggers</h1>
 
+<% if logged_in? %>
+<h2> Hello, <%= current_user.name %> </h2>
+<% end %>
 
+<ul>
+<% @vlogs.each do |v| %>
+<a href="/vlogs/<%=v.id%>"><%= v.name %> </a></li>
+<% end %>
+
+</ul>
