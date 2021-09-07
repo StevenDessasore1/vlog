@@ -5,6 +5,8 @@ if ActiveRecord::Base.connection.migration_context.
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
 
+use Rack::MethodOverride
+
 use ApplicationController
 use UsersController
 run VlogsController

@@ -41,7 +41,7 @@ class VlogsController < ApplicationController
   @vlog = Vlog.find(params[:id])
   redirect_if_not_logged_in
   @vlog.update(params["vlog"])
-  redirect "/vloggers/#{@vlog.id}"
+  redirect "/vlogs/#{@vlog.id}"
 end
 
 
