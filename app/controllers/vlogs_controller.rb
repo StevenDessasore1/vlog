@@ -8,10 +8,21 @@ class VlogsController < ApplicationController
 
   
   get "/vlogs/new" do
-    redirect_if_not_logged_in
-    @name = Name.all
+    @vlogs = Vlog.all
     erb :"/vlogs/new"
   end
+
+
+  get "/vlogs/:id" do
+    @vlog = Vlog.find(params[:id])
+    erb :"/vlogs/show"
+  end
+
+
+  get "/vlogs/:id/edit" do
+    erb :"/vlogs/edit"
+  end
+
   
   post "/vlogs" do
     redirect_if_not_logged_in
@@ -21,17 +32,6 @@ class VlogsController < ApplicationController
     @vlog.save
 
     redirect :"/vlogs"
-  end
-
-  
-  get "/vlogs/:id" do
-    @vlog = Vlog.find(params[:id])
-    erb :"/vlogs/show"
-  end
-
-
-  get "/vlogs/:id/edit" do
-    erb :"/vlogs/edit"
   end
 
   
