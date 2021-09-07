@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+  <center><header><img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260g" width="300" height="300" class="img-responsive main-image"></header></center>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+    <title>Steven Vlogs</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+
+
+    <p><p>Welcome to the Steven Vlogs! 
+    Once you create an account you will be able to list your favorite vloggers and also leave an description. 
+    Thanks for visting and hope you enjoy Steven Vlogs.</p>
+    <%= yield %>
+
+    
+    
+    <br>
+    <form method="POST" action="/login">
+    <input type="submit" value="Log Out Page">
+    </form>
+   
+    </ul>
+
+       
+
+      <footer class="branding">
+        <small>&copy; 2021 <strong>Steven Vlogs</strong></small>
+      </footer>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!--[if lt IE 7]>
+      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+  </body>
+</html>
