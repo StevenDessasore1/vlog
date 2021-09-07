@@ -1,30 +1,26 @@
-class VlogsController < ApplicationController
+# frozen_string_literal: true
 
-  
-  get "/vlogs" do
+class VlogsController < ApplicationController
+  get '/vlogs' do
     @vlogs = Vlog.all
     erb :"/vlogs/index"
   end
 
-  
-  get "/vlogs/new" do
+  get '/vlogs/new' do
     @vlogs = Vlog.all
     erb :"/vlogs/new"
   end
 
-
-  get "/vlogs/:id" do
+  get '/vlogs/:id' do
     @vlog = Vlog.find(params[:id])
     erb :"/vlogs/show"
   end
 
-
-  get "/vlogs/:id/edit" do
+  get '/vlogs/:id/edit' do
     erb :"/vlogs/edit"
   end
 
-  
-  post "/vlogs" do
+  post '/vlogs' do
     redirect_if_not_logged_in
     @vlog = Vlog.new(params)
 
@@ -34,21 +30,18 @@ class VlogsController < ApplicationController
     redirect :"/vlogs"
   end
 
-  
-  patch "/vlogs/:id" do
+  patch '/vlogs/:id' do
     redirect_if_not_logged_in
 
-  @vlog = Vlog.find(params[:id])
-  redirect_if_not_logged_in
-  @vlog.update(params["vlog"])
-  redirect "/vlogs/#{@vlog.id}"
-end
+    @vlog = Vlog.find(params[:id])
+    redirect_if_not_logged_in
+    @vlog.update(params['vlog'])
+    redirect "/vlogs/#{@vlog.id}"
+  end
 
-
-delete "/vlog/:id/delete" do
-  @vlog = Vlog.find(params[:id])
-  @vlog.destroy
-  redirect "/vlogs"
-end
-
+  delete '/vlog/:id/delete' do
+    @vlog = Vlog.find(params[:id])
+    @vlog.destroy
+    redirect '/vlogs'
+  end
 end

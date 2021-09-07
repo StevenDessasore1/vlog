@@ -12,11 +12,27 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-   
+  <center><header><img src="https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260g" width="300" height="300" class="img-responsive main-image"></header></center>
+
+
+  <p><p>Welcome to the Steven Vlogs! 
+  Once you create an account you will be able to list your favorite vloggers and also leave an description. 
+  Thanks for visting and hope you enjoy Steven Vlogs.</p>
+
   <ul>
-  <li><a href="/vlogs">Vloggers</a></li>
-  <li><a href="/login">Login Page</a></li>
-  <li><a href="/signup">Sign Up Page</a></li>
+  <li><a href="/vlogs">Vloggers</a></li><br>
+  <li><a href="/login">Login Page</a></li><br>
+  <li><a href="/signup">Sign Up Page</a></li><br>
+
+  <a href="/vlogs/new">Add New Vlogger</a></li>
+  <form method="POST" action="/logout">
+  <input type="submit" value="Log Out Page">
+  </form>
+
+  <% end %>
+  </ul>
+
+  </%= yield %>
 
   </body>
 </html>

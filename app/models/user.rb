@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
-    has_many :vlogs
-    validates :email, :password, presence: true
-    has_secure_password
+  has_many :vlogs
+  validates :email, :password, presence: true
+  has_secure_password
 end

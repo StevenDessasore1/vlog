@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "jfkslsjwmjcjfeo"
+    set :session_secret, 'jfkslsjwmjcjfeo'
   end
 
-  get "/" do
+  get '/' do
     erb :welcome
   end
 
@@ -24,10 +25,8 @@ class ApplicationController < Sinatra::Base
   end
 
   private
-  def redirect_if_not_logged_in
-    if !logged_in?
-      redirect to '/login'
-    end
-  end
 
+  def redirect_if_not_logged_in
+    redirect to '/login' unless logged_in?
+  end
 end
