@@ -53,11 +53,9 @@ class VlogsController < ApplicationController
     redirect to '/vlogs'
   end
 
-  private 
-  def redirect_if_not_authorized
-    if @vlog.user != current_user
-      redirect to '/vlogs'
-    end
-end
+  private
 
+  def redirect_if_not_authorized
+    redirect to '/vlogs' if @vlog.user != current_user
+  end
 end

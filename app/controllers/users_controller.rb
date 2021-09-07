@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  
   get '/signup' do
     erb :'users/signup'
   end
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+    if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect to '/vlogs'
 
@@ -35,6 +34,4 @@ class UsersController < ApplicationController
     session.clear
     redirect to '/vlogs'
   end
-  
-  
 end
