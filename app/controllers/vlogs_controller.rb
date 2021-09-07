@@ -50,7 +50,7 @@ class VlogsController < ApplicationController
     @vlog = Vlog.find(params[:id])
     redirect_if_not_authorized
     @vlog.destroy
-    redirect '/vlogs'
+    redirect to '/vlogs'
   end
 
   private 
@@ -58,4 +58,6 @@ class VlogsController < ApplicationController
     if @vlog.user != current_user
       redirect to '/vlogs'
     end
+end
+
 end

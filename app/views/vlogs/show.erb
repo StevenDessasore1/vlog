@@ -6,14 +6,15 @@
 <p>Description: <%= @vlog.description %></p>
 
 
-<% if. @vlog.user == current_user %>
-<a href="/vlogs/<%=@vlog.id%>/edit">Edit</a>
+<% if @vlog.user == current_user %>
+<a href="/vlogs/<%=@vlog.id%>">Edit</a>
 
-<form method="POST" action="/vlogs/<%=@vlog.id%> ">
+<form method="POST" action="/vlogs/<%= @vlog.id %>">
 <input type="hidden" name="_method" value="DELETE" />
 <input type="submit" value="Delete Favorite Vlogger" />
 </form>
 
 <% end %>
 
+</form>
 
