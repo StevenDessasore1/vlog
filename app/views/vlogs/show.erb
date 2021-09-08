@@ -7,7 +7,7 @@
 
 
 <% if @vlog.user == current_user %>
-<a href="/vlogs/<%=@vlog.id%>">Edit</a>
+<a href="/vlogs/<%=@vlog.id%>/edit">Edit</a>
 
 <form method="POST" action="/vlogs/<%= @vlog.id %>">
 <input type="hidden" name="_method" value="DELETE" />

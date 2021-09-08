@@ -1,7 +1,10 @@
 <h1>Edit Vlogger <%= @vlog.name %></h1>
-<form method = "POST" action="/vlog/<%=@vlog.id%>">
+<form method = "POST" action="/vlogs/<%=@vlog.id%>">
 <input type="hidden" name="_method" value="PATCH">
 
 <p>Name: <input type="text" name="vlog[name]" value="<%=@vlog.name%>" /></p>
+<p>Genre: <input type="text" name="vlog[genre]" value="<%=@vlog.genre%>" /></p>
+<p>Description: <input type="textarea" name="vlog[description]" value="<%=@vlog.description%>" /></p>
+
 <input type="submit" value="Update Vlogger" id="submit" />
 </form>
