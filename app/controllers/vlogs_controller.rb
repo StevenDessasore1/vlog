@@ -46,14 +46,14 @@ class VlogsController < ApplicationController
     redirect :"/vlogs/#{@vlog.id}"
   end
 
-  delete '/vlog/:id/delete' do
+  delete '/vlogs/:id/delete' do
     redirect_if_not_logged_in
-
     @vlog = Vlog.find(params[:id])
     redirect_if_not_authorized
     @vlog.destroy
-    redirect :"/vlogs"
+    redirect to :"/vlogs"
   end
+
 
   private
 

@@ -9,9 +9,9 @@
 <% if @vlog.user == current_user %>
 <a href="/vlogs/<%=@vlog.id%>/edit">Edit</a>
 
-<form method="POST" action="/vlogs/<%= @vlog.id %>">
-<input type="hidden" name="_method" value="DELETE" />
-<input type="submit" value="Delete Favorite Vlogger" />
+<form method="POST" action="/vlogs/<%=@vlog.id%>/delete">
+<input type="hidden" name="_method" value="DELETE"/>
+<input type="submit" value="Delete Favorite Vlogger"/>
 </form>
 
 <% end %>
