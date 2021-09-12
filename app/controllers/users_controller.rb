@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   post '/signup' do
     user = User.new(params)
     if !user.save
-      redirect to '/signup'
+      "That Didnt Look like the right email and password please try again"
+      redirect '/signup'
     else
       user.save
       session[:user_id] = user.id
-      redirect to '/vlogs'
+      redirect '/vlogs'
     end
   end
 

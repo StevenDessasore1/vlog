@@ -39,9 +39,7 @@ class VlogsController < ApplicationController
 
   patch '/vlogs/:id' do
     redirect_if_not_logged_in
-
     @vlog = Vlog.find(params[:id])
-
     redirect_if_not_authorized
     @vlog.update(params["vlog"])
     redirect :"vlogs/#{@vlog.id}"
