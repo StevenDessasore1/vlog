@@ -9,6 +9,6 @@ end
 
 use Rack::MethodOverride
 
-use ApplicationController
+use VlogsController
 use UsersController
-run VlogsController
+run ApplicationController

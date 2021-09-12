@@ -1,20 +1,15 @@
-<h1>Edit or Delete Favoite Vlogger Post</h1>
 
 
-<p><%= @vlog.name %></p>
+<h1>Your Favorite Vlog Below</h1>
+
+<h2><p><%= @vlog.name %></p></h2>
 <p>Genre: <%= @vlog.genre %></p>
-<p>Description: <%= @vlog.description %></p>
 
-
-<% if @vlog.user == current_user %>
 <a href="/vlogs/<%=@vlog.id%>/edit">Edit</a>
-
-<form method="POST" action="/vlogs/<%=@vlog.id%>/delete">
-<input type="hidden" name="_method" value="DELETE"/>
+<form method="POST" action="/vlogs/<%=@vlog.id%>">
+<input type="hidden" name="_method" value="DELETE" />
 <input type="submit" value="Delete Favorite Vlogger"/>
 </form>
 
-<% end %>
 
-</form>
 
