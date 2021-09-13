@@ -6,6 +6,7 @@ class CreateVlogs < ActiveRecord::Migration[5.2]
       t.string  :name
       t.string  :genre
       t.text    :description
+      t.integer :user_id
     end
   end
 end

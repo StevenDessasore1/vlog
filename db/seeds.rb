@@ -17,6 +17,3 @@ Vlog.find_or_create_by(name: 'KSI', genre: 'Entertainment',
 
 Vlog.find_or_create_by(name: 'Jasmine Brown', genre: 'Style',
             description: 'Also known as JasMeannnn, model and beauty YouTuber, Jasmine Brown, offers hair and makeup tutorials to her followers. Last year, Brown released a clothing line with Love Culture and an eyelash line with Eylure London.')
-
-
-User.create(name)
