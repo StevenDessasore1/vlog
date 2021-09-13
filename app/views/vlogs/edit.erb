@@ -1,7 +1,6 @@
 <h1>Edit Vlogger </h1>
 <%= @vlog.name %>
 
-
 <form method="post" action="/vlogs/<%=@vlog.id%>">
 <input type="hidden" name="_method" value="patch">
 <p>Name: <input type="text" name="vlog[name]" value="<%=@vlog.name%>" /></p>
@@ -11,6 +10,7 @@
 
 <input type="submit" value="Update Vlogger" id="submit" />
 </form>
+
 
 <% if logged_in? %>
 <form method="post" action="/logout">
