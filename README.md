@@ -1,1 +1,2 @@
 
+In this application, Steven Vlog's a user will be able to create account. Once a user completes the necessary fields (username, email, password), they will be able to create their own vlog post. A user is able to create, edit , and delete an vlog entry. The fields for posting a vlog entry are name, genre, and description. These fields will help other users get an idea of what the vlog is about. 
